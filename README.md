@@ -1,11 +1,9 @@
-Swipe
-=====
+# Swipe
 
 [![Build Status](https://travis-ci.org/lyfeyaj/swipe.svg?branch=master)](https://travis-ci.org/lyfeyaj/swipe)
 [![npm version](https://badge.fury.io/js/swipejs.svg)](https://badge.fury.io/js/swipejs)
 [![npm](https://img.shields.io/npm/dt/swipejs.svg)]()
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/lyfeyaj/swipe/master/LICENSE.md)
-
 
 > Swipe is the most accurate touch slider. It is extremely lightweight (only 6kb minified) and works across all browsers, including IE7+.
 
@@ -35,7 +33,7 @@ See the [online example](https://swipe.js.org) for a simple demo.
 
 Swipe requires just a few lines of markup. Here is an example:
 
-``` html
+```html
 <div id="slider" class="swipe">
   <div class="swipe-wrap">
     <div></div>
@@ -51,7 +49,7 @@ Above is the initial required structure– a series of elements wrapped in two c
 
 Swipe requires the following styles to be added to your stylesheet:
 
-``` css
+```css
 .swipe {
   overflow: hidden;
   visibility: hidden;
@@ -73,8 +71,8 @@ Swipe requires the following styles to be added to your stylesheet:
 
 You may initialize a Swipe slider with only one line of javascript code:
 
-``` js
-window.mySwipe = new Swipe(document.getElementById('slider'));
+```js
+window.mySwipe = new Swipe(document.getElementById("slider"));
 ```
 
 I always place this at the bottom of the page, externally, to verify the page is ready.
@@ -84,7 +82,7 @@ I always place this at the bottom of the page, externally, to verify the page is
 Swipe can take an optional second parameter – an object of key/value settings:
 
 | Options             | Type     | Default | Description                                                                                                                                                                                                      |
-|---------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **startSlide**      | Integer  | 0       | index position at which Swipe should start.                                                                                                                                                                      |
 | **speed**           | Integer  | 300     | speed of prev and next transitions in milliseconds.                                                                                                                                                              |
 | **auto**            | Integer  | 0       | when specified, start an auto-playing slideshow (time in milliseconds between slide change).                                                                                                                     |
@@ -92,14 +90,16 @@ Swipe can take an optional second parameter – an object of key/value settings:
 | **autoRestart**     | Boolean  | false   | auto restart slideshow after user's touch event or next/prev calls.                                                                                                                                              |
 | **disableScroll**   | Boolean  | false   | prevent any touch events on this container from scrolling the page.                                                                                                                                              |
 | **stopPropagation** | Boolean  | false   | stop event propagation.                                                                                                                                                                                          |
-| **draggable**       | Boolean  | false   | listen to mouse events in addition to the touch events |
+| **draggable**       | Boolean  | false   | listen to mouse events in addition to the touch events                                                                                                                                                           |
 | **callback**        | Function | null    | runs at slide change. Three parameters are passed to the function: `index` (the current slide index)`elem` (the current slide element) and `dir` (direction: `1` for left or backward`-1` for right or forward). |
 | **transitionEnd**   | Function | null    | runs at the end of a slide transition. Two parameters are passed to the function: `index` (the current slide index) and `elem` (the current slide element).                                                      |
+| **dragStart**       | Function | null    | runs at mousedown, touchstart events when user starts sliding.                                                                                                                                                   |
+| **dragEnd**         | Function | null    | runs at mouseup, touchend events when user stops sliding.                                                                                                                                                        |
 
 ### Example
 
-``` js
-window.mySwipe = new Swipe(document.getElementById('slider'), {
+```js
+window.mySwipe = new Swipe(document.getElementById("slider"), {
   startSlide: 0,
   speed: 400,
   auto: 3000,
@@ -117,7 +117,7 @@ window.mySwipe = new Swipe(document.getElementById('slider'), {
 A Swipe instance exposes the following public methods:
 
 | Methods                  | Description                                                                                             |
-|--------------------------|---------------------------------------------------------------------------------------------------------|
+| ------------------------ | ------------------------------------------------------------------------------------------------------- |
 | `prev()`                 | slide to the previous slide.                                                                            |
 | `next()`                 | slide to the next slide.                                                                                |
 | `getPos()`               | return the current slide index position.                                                                |
